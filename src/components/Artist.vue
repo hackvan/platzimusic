@@ -1,8 +1,9 @@
 <template lang="pug">
-  li.artist
+  .list-artist
+    img(:src="artist.image[3]['#text']")
     h2
       a(:href="artist.url" target="_blank") {{ artist.name }}
-    img(:src="artist.image[2]['#text']")
+    p.listeners {{ artist.listeners }} {{ artist.listeners | pluralize('es', ['oyente', 'oyentes']) }}
 </template>
 
 <script>
@@ -13,7 +14,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-li.artist
-  display block
-  margin 10px 0
+  .list-artist
+    border  2px #42b983 solid
+    border-radius 4px
+    display inline-block
+    margin 20px
+    padding 10px
+  .list-artist img 
+    border-radius 5px
+  .listeners
+    font-size .8em
+    margin 0 0 20px 0 
 </style>

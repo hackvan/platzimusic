@@ -1,9 +1,10 @@
 <template lang="pug">
   #app
-    img(src='dist/logo.png')
-    h1 PlatziMusic
-    select(v-model="selectedCountry")
-      option(v-for="country in countries" v-bind:value="country.value") {{ country.name }}
+    .head
+      img(src='dist/logo.png')
+      h1 Vue.js with LastFM
+      select(v-model="selectedCountry")
+        option(v-for="country in countries" v-bind:value="country.value") {{ country.name }}
     spinner(v-show="loading")
     ul
       artist(v-for="artist in artists" v-bind:artist="artist" v-bind:key="artist.mbid")
@@ -55,16 +56,23 @@ export default {
 </script>
 
 <style lang="stylus">
+body
+  margin 0
+
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  margin-top 60px
+
+.head
+  background-color #5d6670
+  padding 20px 0 40px 0
 
 h1, h2
   font-weight normal
+  color white
 
 ul
   list-style-type none
@@ -76,4 +84,13 @@ li
 
 a
   color #42b983
+
+select, input
+  background-color white
+  color #2c3e50
+  font-size 1.3em
+  padding 10px
+  width 250px
+  border  2px #42b983 solid
+  border-radius 5px
 </style>
